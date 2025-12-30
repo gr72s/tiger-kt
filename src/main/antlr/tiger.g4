@@ -1,5 +1,7 @@
 grammar tiger;
 
+program: exp EOF;
+
 decs: dec;
 
 dec
@@ -34,6 +36,41 @@ fundec
     ;
 
 typeId: ID;
+
+exp
+    : ID
+    | INT
+    | STRING
+    | 'nil'
+    | '(' (exp (';' exp)*)? ')'
+    | exp '.' ID
+    | exp '[' exp ']'
+    | typeId '{' (ID '=' exp (',' ID '=' exp)*)? '}'
+    | typeId '[' exp ']' 'of' exp
+    | ID '(' (exp (',' exp)*)? ')'
+    | '-' exp
+    | exp ('*'|'/') exp
+    | exp ('+'|'-') exp
+    | exp ('='|'<>'|'>'|'<'|'>='|'<=') exp
+    | exp '&' exp
+    | exp '|' exp
+    | exp ':=' exp
+    | 'if' exp 'then' exp ('else' exp)?
+    | 'while' exp 'do' exp
+    | 'for' ID ':=' exp 'to' exp 'do' exp
+    | 'break'
+    | 'let' decs 'in' expseq 'end'
+    ;
+
+expseq: exp? (';' exp)+;
+
+INT
+    : [0-9]+
+    ;
+
+STRING
+    : '"' ( '\\' [btnfr"'\\] | ~["\\] )* '"'
+    ;
 
 ID
     : [a-zA-Z_] [a-zA-Z_0-9]*
