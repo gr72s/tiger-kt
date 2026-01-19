@@ -1,0 +1,20 @@
+// 输出s至标准输出
+function print(s: string)
+// 排空标准输出缓冲区
+function flush()
+// 从标准输入读一个字符；遇到文件尾则返回空字符串
+function chr()
+// 给出s中第一个字符的ASCII值；如果s是空字符串，则返回-1
+function ord(s: string): int
+// ASCII值为i的单字符字符串；若i超出了ASCII字符集的范围，程序将停止
+function chr(i: int): string
+// s中字符的个数
+function size(s: string): int
+// 字符串s中从第first个字符开始、长度为n的子字符串3,字符从0开始编号。
+function substring(s:string, first:int, nint):string
+// s1和s2的串联得到的字符串。
+function concat (sl: string, s2: string) :string
+// 返回(i=0)。
+function not(i : int) : int
+// 以状态码i终止程序的执行
+function exit(i: int)
