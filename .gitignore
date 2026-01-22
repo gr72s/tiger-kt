@@ -10,6 +10,7 @@ build/
 .idea/compiler.xml
 .idea/gradle.xml
 .idea/misc.xml
+.idea/workspace.xml
 .idea/libraries/
 *.iws
 *.iml
@@ -26,3 +27,5 @@ out/
 
 ### Mac OS ###
 .DS_Store
+
+*.txt

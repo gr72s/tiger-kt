@@ -24,7 +24,7 @@ exp
     | 'while' exp 'do' exp
     | 'for' ID ':=' exp 'to' exp 'do' exp
     | 'break'
-    | REGULAR_COMMENT? 'let' decs 'in' expseq 'end'
+    | 'let' decs 'in' expseq 'end'
     ;
 
 decs: dec+;
@@ -62,7 +62,7 @@ fundec
 
 typeId: ID;
 
-expseq: exp+ (';' exp)?;
+expseq: exp (';' exp)*;
 
 INT
     : [0-9]+
@@ -77,7 +77,7 @@ ID
     ;
 
 REGULAR_COMMENT
-    : '/*' .*? '*/'
+    : '/*' .*? '*/' -> channel(HIDDEN)
     ;
 
 

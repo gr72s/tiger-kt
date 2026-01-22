@@ -32,6 +32,10 @@ tasks.compileKotlin {
     dependsOn(tasks.generateGrammarSource)
 }
 
+tasks.compileTestKotlin {
+    dependsOn(tasks.generateTestGrammarSource)
+}
+
 tasks.generateGrammarSource<AntlrTask> {
     val pkg = "com.gr72s"
     val targetSourceDir = file("src/main/antlr/.antlr")
