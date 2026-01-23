@@ -18,6 +18,7 @@ dependencies {
     antlr(libs.antlr4)
     implementation(libs.antlr4.runtime)
     testImplementation(kotlin("test"))
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.0")
 }
 
 tasks.test {
